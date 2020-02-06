@@ -1,33 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import {BrowserRouter as Router, Route} from 'react-router-dom'
-
-const Home = () => {
-  return (
+import Home from './Home'
+import About from './About'
+import Login from './Login'
+import Navbar from './Navbar'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+ 
+ReactDOM.render((
+  <Router>
     <div>
-      <h1>Home!</h1>
+      <Navbar />
+      <Route exact path="/" component={Home} />
+      <Route exact path="/about" component={About} />
+      <Route exact path="/login" component={Login} />
     </div>
-  );
-};
-
-const About = () => {
-  return (
-    <div>
-      <h1>This is my about component!</h1>
-    </div>
-  );
-};
-
-ReactDOM.render(
-  (
-    <Router>
-      <div>
-        <Route exact path='/' component={Home}/>
-        <Route exact path='/about' component={About}/>
-      </div>
-        
-    </Router>
-  ),
+  </Router>),
   document.getElementById('root')
 );
